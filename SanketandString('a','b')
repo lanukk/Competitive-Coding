@@ -1,0 +1,44 @@
+//Sanket has a string consisting of only 'a' and 'b' as the characters. Sanket describes perfectness of a string as the maximum length substring of equal characters. Sanket is given a number k which denotes the maximum number of characters he can change. Find the maximum perfectness he can generate by changing no more than k characters.
+
+
+#include<bits/stdc++.h>
+#include<string>
+
+using namespace std;
+
+int main()
+{
+	int k;
+    cin>>k;
+    string s;
+    cin>>s;
+    int left=0,i=0;
+    int counta=0,countb=0;
+int n;
+n=s.length();
+    int realsum=INT_MIN;
+    int currentsum;
+    while(i<n)
+    {
+        if(s[i]=='a')
+            counta++;
+        else
+            countb++;
+        if(min(counta,countb)>k)
+        {
+            if(s[left]=='a')
+                counta--;
+            else
+                countb--;
+
+            left++;
+        }
+        currentsum=counta+countb;
+        realsum = max(currentsum,realsum);
+
+        i++;
+
+    }
+    cout<<realsum;
+
+}
