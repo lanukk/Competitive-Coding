@@ -1,6 +1,6 @@
 //Sanket has a string consisting of only 'a' and 'b' as the characters. Sanket describes perfectness of a string as the maximum length substring of equal characters. Sanket is given a number k which denotes the maximum number of characters he can change. Find the maximum perfectness he can generate by changing no more than k characters.
 
-
+//https://hack.codingblocks.com/app/contests/1171/p/1569
 #include<bits/stdc++.h>
 #include<string>
 
