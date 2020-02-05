@@ -1,0 +1,28 @@
+//https://hack.codingblocks.com/app/contests/1171/p/1226
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+
+    int n,m,x,y;
+    cin>>n>>m>>x>>y;
+    int countd=0;
+
+    while(n && n>0)
+    {
+        if(m>=x)
+        {
+            m=m-x;
+            countd++;
+            n--;
+
+        }
+        if(m<x && n!=0)
+        {
+            m+=y;
+            n--;
+        }
+    }
+    cout<<countd;
+}
