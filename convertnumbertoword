@@ -1,0 +1,21 @@
+#include<bits/stdc++.h>
+using namespace std;
+void numtoword(string s,string* word, int i)
+{
+    if(i==s.length())
+        return;
+
+    cout<<word[s[i]-'0'];
+    numtoword(s,word,i+1);
+    return;
+}
+
+
+int main()
+{
+    string s;
+    cin>>s;
+    string word[]= {"zero ","one ","two ","three ","four ","five ","six ","seven ","eight ","nine "};
+    int i=0;
+    numtoword(s,word,i);
+}
