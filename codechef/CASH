@@ -1,0 +1,55 @@
+//https://www.codechef.com/FEB20B/problems/CASH
+
+#include<bits/stdc++.h>
+#define ll long long
+#define FIO ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
+
+using namespace std;
+int main()
+{
+    FIO
+    ll int t;
+    cin>>t;
+    while(t--)
+    {
+
+    ll int n,k,cum[100001];
+    cin>>n>>k;
+    cin>>cum[0];
+    cum[0]=cum[0]%k;
+    for(ll int i=1;i<n;i++)
+    {
+        cin>>cum[i];
+        cum[i]=cum[i-1] +(cum[i]%k);
+    }
+    ll int a=cum[n-1],result=a%k,divleft,rightsum,z;
+    for(int i=n-2;i>=0 ;i--)
+    {
+         divleft=cum[i]%k;
+         rightsum=a-cum[i];
+         z=rightsum%k
+        if(z!=0)
+        {
+            divleft=divleft - (k-z);
+        }
+        if(divleft<0)
+        {
+            divleft=INT_MAX;
+        }
+        if(divleft<result)
+        {
+
+            result=divleft;
+        }
+    }
+    cout<<result<<endl;
+    }
+
+
+
+
+
+
+return 0;
+
+}
