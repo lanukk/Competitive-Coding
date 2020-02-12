@@ -1,0 +1,113 @@
+//https://www.codechef.com/FEB20B/problems/THEATRE/
+
+
+#include<bits/stdc++.h>
+#define a arr[A][i]
+#define b arr[B][j]
+#define c arr[C][k]
+#define d arr[D][l]
+#define ll long long
+using namespace std;
+
+#define FIO ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
+
+int solve(int n)
+{
+    
+    if(n==0)
+        return -400;
+    ll int arr[4][4]={0};
+    char ch;
+    int x;
+
+
+    for(int i=0;i<n;i++)
+        {
+            cin>>ch;
+            cin>>x;
+            arr[ch - 'A'][(x/3)-1]++;
+        }
+        int A=0,B=1,C=2,D=3;
+        ll int maxprofit=INT_MIN,currprofit;
+        int zeros=0;
+        while(A<4)
+        {
+            for(int i=0;i<4;i++)
+            {
+                for(int j=0;j<4;j++)
+                {
+                    if(j!=i)
+                    {
+                        for(int k=0;k<4;k++)
+                        {
+                            if(k!=j && k!=i)
+                            {
+                                for(int l=0;l<4;l++)
+                                {
+                                    if(l!=k && l!=j && l!=i)
+                                    {
+                                        zeros=0;
+                                        int sarr[]={a,b,c,d};
+                                        sort(sarr,sarr+4);
+                                        currprofit=sarr[3]*100+sarr[2]*75+sarr[1]*50+sarr[0]*25;
+                                                if(a==0)
+                                                    zeros++;
+                                                if(b==0)
+                                                    zeros++;
+                                                if(c==0)
+                                                    zeros++;
+                                                if(d==0)
+                                                    zeros++;
+                                        currprofit=currprofit-zeros*100;
+                                        if(currprofit>maxprofit)
+                                            {
+                                                maxprofit=currprofit;
+                                                
+
+                                            }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            A++;
+            B++;
+            C++;
+            D++;
+            if(B==4)
+                B=0;
+            if(C==4)
+                C=0;
+            if(D==4)
+                D=0;
+
+        }
+        return maxprofit;
+}
+
+
+
+
+int main()
+{
+    FIO
+    int t;
+    cin>>t;
+    ll int totalprofit=0;
+    while(t--)
+    {
+
+    int n;
+    cin>>n;
+    ll int s= solve(n);
+    totalprofit+=s;
+    cout<<s<<endl;
+    }
+
+    cout<<totalprofit;
+
+
+        return 0;
+}
