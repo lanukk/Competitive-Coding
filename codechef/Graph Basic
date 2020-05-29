@@ -1,5 +1,10 @@
 Graph
+There are two type of implementation of GRAPH:
+1st - 2D array (its not that good because of the time to traverse is always n^2)
 
+2nd - Adjacency List
+
+We will use adjacency list interpretation in these explanation
 class graph{
 	map<int , list<int> > mp;
 	public:
