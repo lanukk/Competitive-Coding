@@ -1,3 +1,5 @@
+<UNFINISHED>
+
 YOU are given an array of n positive integers,you don't know the array, and you have to find sum of all its element. 
 
 You are also given number x which is equal to (sum of all (a[i]^k) )
