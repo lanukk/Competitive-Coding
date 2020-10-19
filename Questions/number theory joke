@@ -1,0 +1,129 @@
+its same like https://www.codechef.com/COOK123A/problems/DIANE
+
+but i have a change;
+
+You are given an integer D. Find an integer sequence A1,A2,…,AN such that the following conditions are satisfied:
+
+1≤N≤1e5
+1≤A[i]≤1e5 for each valid i
+
+(submission from 1 to N) (min(A[i],A[i+1],…,A[j])−GCD(A[i],A[i+1],…,A[j]))=D    (change in this line)
+
+Input
+The first line of the input contains a single integer T denoting the number of test cases. The description of T test cases follows.
+The first and only line of each test case contains a single integer D.
+
+Output
+For each test case, print two lines. The first of these lines should contain a single integer N. The second line should contain N space-separated integers A1,A2,…,AN.
+
+If there are multiple solutions, you may find any one of them.
+
+Constraints
+1≤T≤10
+0≤D≤1e9
+
+Example Input
+4
+2
+5
+200
+13
+
+Example Output
+3
+3 3 2 
+5
+2 8 5 1 10 
+7
+12 10 15 11 19 13 15
+4
+5 4 4 10 
+
+
+
+SOLUTION: 
+
+due to limit of a[i] <=1e5 theres an edge case.
+
+#include<bits/stdc++.h>
+#include<math.h>
+#include<set>
+#include<string>
+using namespace std;
+
+//#define int                long long int
+#define jaldichal          ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
+#define pb                 push_back
+#define mk                 make_pair
+#define R                  return
+#define line               "\n"
+#define space              " "
+#define all(x)             x.begin(),x.end()
+#define w(x)               int x;cin>>x;for(int i=1;i<=x;i++)
+#define vi                 vector<int>
+#define setbits(x)         __builtin_popcountll(x)
+#define ll                 long long
+#define fi                 first
+#define se                 second
+#define print(i,ans)       cout<<"Case #"<<i<<": "<<ans<<line
+
+#define MAX 10000007
+vector<int> prime;
+bool nprime[MAX + 6];
+void sieve()
+{
+  memset(nprime, false, sizeof nprime);
+  // cout<<"memset finished"<<endl;
+  for (int i = 2; i <= 10005; i++)
+  {
+    if (!nprime[i])
+    {
+      for (int j = i * i; j <= MAX; j += i)
+        nprime[j] = true;
+    }
+  }
+  for (int i = 2; i <= MAX; i++)
+    if (!nprime[i])prime.pb(i);
+  return;
+}
+
+
+void solve(int input)
+{
+  int d;
+  cin >> d;
+  if (d == 0) {
+    cout << "1\n1" << line;
+    R;
+  }
+
+  int first_prime = upper_bound(all(prime), d + 1) - prime.begin();
+  first_prime = prime[first_prime];
+  if (d < 100000 && first_prime < 100000) {
+    cout << "2\n" << d + 1 << space << first_prime << line; R;
+  }
+  int k = d;
+  int x = 0;
+  while (k > 99989) {
+    k = k - 99989;
+    x++;
+  }
+  cout << x + 2 << line;
+  cout << k + 1 << space;
+  for (int i = 0; i < x; i++) {
+    cout << "99990" << space;
+  }
+  cout << "99991" << line;
+
+}
+
+signed main()
+{
+  jaldichal
+  sieve();
+  int x = 1;
+  cin >> x;
+  for (int i = 1; i <= x; i++)
+    solve(i);
+  return 0;
+}
