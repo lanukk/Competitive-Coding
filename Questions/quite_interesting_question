@@ -1,0 +1,8 @@
+https://codeforces.com/contest/1451/problem/C
+
+choose an index i (1≤i≤n−k+1) and if ai,ai+1,…,ai+k−1 are [all equal] to some character c (c≠ 'z'), replace each one with the next character (c+1), that is, 'a' is replaced by 'b', 'b' is replaced by 'c' and so on.
+										
+
+										to
+
+choose an index i (1≤i≤n−k+1) and if ai,ai+1,…,ai+k−1 are [all equal or not] to some character c (c≠ 'z'), replace each one with the next character (c+1), that is, 'a' is replaced by 'b', 'b' is replaced by 'c' and so on.
